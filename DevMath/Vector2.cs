@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DevMath {
     public struct Vector2 {
@@ -10,6 +14,7 @@ namespace DevMath {
         }
 
         public Vector2 Normalized {
+            // get { return this * (1 / Magnitude); }
             get { return (this / Magnitude); }
         }
 
@@ -24,6 +29,11 @@ namespace DevMath {
 
         public static Vector2 Lerp(Vector2 a, Vector2 b, float t) {
             return a * (1 - t) + b * t;
+
+            // return a + (b - a) * t;
+
+            // t = DevMath.Clamp01(t);
+            // return new Vector2(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t);
         }
 
         public static float Angle(Vector2 lhs, Vector2 rhs) {
